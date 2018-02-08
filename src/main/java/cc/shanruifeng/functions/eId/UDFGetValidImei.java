@@ -2,6 +2,7 @@ package cc.shanruifeng.functions.eId;
 
 import java.util.Arrays;
 import org.apache.hadoop.hive.ql.exec.Description;
+import org.apache.hadoop.hive.ql.exec.UDF;
 import org.apache.hadoop.io.Text;
 
 /**
@@ -13,7 +14,7 @@ import org.apache.hadoop.io.Text;
   , value = "_FUNC_(string) - If input is a valid imei, reform it to 15 bit. other wise return null"
   , extended = "Example:\n > select _FUNC_(string) from src;")
 
-public class UDFGetValidImei {
+public class UDFGetValidImei extends UDF {
     private Text result = new Text();
 
     public UDFGetValidImei() {

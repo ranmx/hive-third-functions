@@ -140,6 +140,14 @@ You can also directly download file from [release page](https://github.com/aaron
 |url_encode(value) -> string | escapes value by encoding it so that it can be safely included in URL query parameter names and values|
 |url_decode(value) -> string | unescape the URL encoded value. This function is the inverse of `url_encode`. | 
 
+#### 10. eId functions
+
+|function|description|
+|:--|:--|
+|get_valid_imei(value) -> string | If input is a valid imei, reform it to 15 bit. other wise return null |
+|get_valid_mac(value) -> string | If input is a valid mac, reform it to ff:ff:ff:ff:ff:ff, other wise return null |
+|get_valid_mobile(value) -> string | If input is a valid mobile, reform it to 1**********, other wise return null |
+
 ## Use
 
 Put these statements into `${HOME}/.hiverc` or exec its on hive cli env.
@@ -200,6 +208,9 @@ create temporary function gcj_to_wgs as 'cc.shanruifeng.functions.geo.UDFGeoGcjT
 create temporary function gcj_extract_wgs as 'cc.shanruifeng.functions.geo.UDFGeoGcjExtractWgs';
 create temporary function url_encode as 'cc.shanruifeng.functions.url.UDFUrlEncode';
 create temporary function url_decode as 'cc.shanruifeng.functions.url.UDFUrlDecode';
+CREATE TEMPORARY FUNCTION get_valid_imei AS 'cc.shanruifeng.functions.eId.UDFGetValidImei';
+CREATE TEMPORARY FUNCTION get_valid_mac AS 'cc.shanruifeng.functions.eId.UDFGetValidMac';
+CREATE TEMPORARY FUNCTION get_valid_mobile AS 'cc.shanruifeng.functions.eId.UDFGetValidMobile';
 ```
 
 You can use these statements on hive cli env get detail of function.

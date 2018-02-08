@@ -16,7 +16,7 @@ import org.apache.hadoop.io.Text;
   , value = "_FUNC_(string) - If input is a valid mac, reform it to ff:ff:ff:ff:ff:ff, other wise return null"
   , extended = "Example:\n > select _FUNC_(string) from src;")
 
-public class UDFGetValidMac {
+public class UDFGetValidMac extends UDF{
     private Text result = new Text();
 
     public UDFGetValidMac() {
