@@ -23,6 +23,7 @@ public class GetValidMobileTest {
         Text testID7 = new Text("15921683335+00");
         Text testID8 = new Text("???8613501755773?");
         Text testID9 = new Text("8613501755773-");
+        Text testID10 = new Text("135 0175 5773");
 
 
 
@@ -35,6 +36,7 @@ public class GetValidMobileTest {
         assert(app.evaluate(testID7).equals(new Text("15921683335")));
         assert(app.evaluate(testID8).equals(new Text("13501755773")));
         assert(app.evaluate(testID9).equals(new Text("13501755773")));
+        assert(app.evaluate(testID10).equals(new Text("13501755773")));
     }
 
 }

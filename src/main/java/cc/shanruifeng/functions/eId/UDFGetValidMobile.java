@@ -32,7 +32,7 @@ public class UDFGetValidMobile extends UDF {
     }
 
     private static String regulateMobile (String value) {
-        String replaceValue = value.replaceAll("\\p{Punct}", "").trim();
+        String replaceValue = value.replaceAll("[\\p{Punct}\\s]", "").trim();
         Pattern p = Pattern.compile("1[34578][0-9]{9}"); // 验证手机号
         Matcher m = p.matcher(replaceValue);
         if (m.find()){
