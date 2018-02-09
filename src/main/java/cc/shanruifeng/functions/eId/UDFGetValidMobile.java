@@ -1,6 +1,8 @@
 package cc.shanruifeng.functions.eId;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.apache.hadoop.hive.ql.exec.Description;
 import org.apache.hadoop.hive.ql.exec.UDF;
 import org.apache.hadoop.io.Text;
@@ -30,25 +32,13 @@ public class UDFGetValidMobile extends UDF {
     }
 
     private static String regulateMobile (String value) {
-        String replaceValue = value.replaceAll("[+|-|*|#|&]", "").trim();
-        int replaceLength = replaceValue.length();
-        if (replaceValue.startsWith("1") && replaceValue.length() == 11) {
-            if (replaceValue.contains("11111") || replaceValue.contains("00000")) {
-                return null;
-            }
-            return replaceValue;
+        String replaceValue = value.replaceAll("\\p{Punct}", "").trim();
+        Pattern p = Pattern.compile("1[34578][0-9]{9}"); // 验证手机号
+        Matcher m = p.matcher(replaceValue);
+        if (m.find()){
+            return m.group(0);
+        }else{
+            return null;
         }
-        if (replaceLength > 11) {
-            String subValue = replaceValue.substring(replaceLength - 11, replaceLength);
-            if (subValue.startsWith("1")) {
-                if (subValue.contains("11111") || subValue.contains("00000")) {
-                    return null;
-                }
-                return subValue;
-            } else {
-                return null;
-            }
-        }
-        return null;
     }
 }

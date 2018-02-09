@@ -20,13 +20,21 @@ public class GetValidMobileTest {
         Text testID4 = new Text("+8613228059918");
         Text testID5 = new Text("008613218");
         Text testID6 = new Text("00861322805");
+        Text testID7 = new Text("15921683335+00");
+        Text testID8 = new Text("???8613501755773?");
+        Text testID9 = new Text("8613501755773-");
+
+
 
         assert(app.evaluate(testID1).equals(new Text("13228059918")));
         assert(app.evaluate(testID2).equals(new Text("13228059918")));
         assert(app.evaluate(testID3)==null);
         assert(app.evaluate(testID4).equals(new Text("13228059918")));
         assert(app.evaluate(testID5)==null);
-        assert(app.evaluate(testID5)==null);
+        assert(app.evaluate(testID6)==null);
+        assert(app.evaluate(testID7).equals(new Text("15921683335")));
+        assert(app.evaluate(testID8).equals(new Text("13501755773")));
+        assert(app.evaluate(testID9).equals(new Text("13501755773")));
     }
 
 }
