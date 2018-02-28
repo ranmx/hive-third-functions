@@ -3,6 +3,7 @@ package cc.shanruifeng.functions.eId;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.hadoop.hive.ql.exec.Description;
+import org.apache.hadoop.hive.ql.exec.UDF;
 import org.apache.hadoop.io.BooleanWritable;
 import org.apache.hadoop.io.Text;
 
@@ -12,7 +13,7 @@ import org.apache.hadoop.io.Text;
 @Description(name = "is_valid_mobile"
   , value = "_FUNC_(string) - whether given mobile is valid or not."
   , extended = "Example:\n > select _FUNC_(string) from src;")
-public class UDFisValidMobile {
+public class UDFisValidMobile extends UDF {
     private BooleanWritable result = new BooleanWritable();
 
     public UDFisValidMobile() {

@@ -2,6 +2,7 @@ package cc.shanruifeng.functions.eId;
 
 import cc.shanruifeng.functions.utils.CardUtils;
 import org.apache.hadoop.hive.ql.exec.Description;
+import org.apache.hadoop.hive.ql.exec.UDF;
 import org.apache.hadoop.io.BooleanWritable;
 import org.apache.hadoop.io.Text;
 
@@ -12,7 +13,7 @@ import org.apache.hadoop.io.Text;
 @Description(name = "is_valid_imei"
   , value = "_FUNC_(string) - whether given imei is valid or not."
   , extended = "Example:\n > select _FUNC_(string) from src;")
-public class UDFisValidImei {
+public class UDFisValidImei extends UDF {
     private BooleanWritable result = new BooleanWritable();
 
     public UDFisValidImei() {
