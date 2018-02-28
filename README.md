@@ -147,6 +147,9 @@ You can also directly download file from [release page](https://github.com/aaron
 |get_valid_imei(value) -> string | If input is a valid imei, reform it to 15 bit. other wise return null |
 |get_valid_mac(value) -> string | If input is a valid mac, reform it to ff:ff:ff:ff:ff:ff, other wise return null |
 |get_valid_mobile(value) -> string | If input is a valid mobile, reform it to 1**********, other wise return null |
+|is_valid_imei(value) -> string | If input is a valid imei, return true, other wise return false |
+|is_valid_mac(value) -> string | If input is a valid mac(ff:ff:ff:ff:ff:ff), return true, other wise return false   |
+|is_valid_mobile(value) -> string | If input is a valid mobile, return true, other wise return false  |
 
 ## Use
 
@@ -211,6 +214,9 @@ create temporary function url_decode as 'cc.shanruifeng.functions.url.UDFUrlDeco
 CREATE TEMPORARY FUNCTION get_valid_imei AS 'cc.shanruifeng.functions.eId.UDFGetValidImei';
 CREATE TEMPORARY FUNCTION get_valid_mac AS 'cc.shanruifeng.functions.eId.UDFGetValidMac';
 CREATE TEMPORARY FUNCTION get_valid_mobile AS 'cc.shanruifeng.functions.eId.UDFGetValidMobile';
+CREATE TEMPORARY FUNCTION is_valid_imei AS 'cc.shanruifeng.functions.eId.UDFisValidImei';
+CREATE TEMPORARY FUNCTION is_valid_mac AS 'cc.shanruifeng.functions.eId.UDFisValidMac';
+CREATE TEMPORARY FUNCTION is_valid_mobile AS 'cc.shanruifeng.functions.eId.UDFisValidMobile';
 ```
 
 You can use these statements on hive cli env get detail of function.

@@ -43,7 +43,7 @@ public class UDFGetValidImei extends UDF {
         }
     }
 
-    private static String getimei15(String imei){
+    public static String getimei15(String imei){
         if (imei.length() == 14) {
             char[] imeiChar=imei.toCharArray();
             int resultInt=0;
